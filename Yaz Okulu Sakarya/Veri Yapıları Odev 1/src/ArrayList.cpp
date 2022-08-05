@@ -8,7 +8,6 @@
 */
 
 
-
 #include "ArrayList.hpp"
 
 
@@ -30,7 +29,7 @@ ArrayList::ArrayList():lenght(0),cap(1){data = new int[cap];}
 int ArrayList::size(){return lenght;}
 int ArrayList::capacity(){return cap;}
 int* ArrayList::begin(){ return data;}
-int* ArrayList::end(){return data+size()-1;}
+int* ArrayList::end(){return data+(size()-1);}
 
 
 void ArrayList::push_back(const int& value)
@@ -41,13 +40,13 @@ void ArrayList::push_back(const int& value)
 
 // atama işlemleri 
 ArrayList& ArrayList::atama(ArrayList& rhs)
-{
-    data = new int[rhs.capacity()];
+{	clear();
+    data = new int[rhs.size()];
     for(int i = 0; i<rhs.size();i++){
         data[i] = rhs.data[i];
     }
     lenght = rhs.size();
-    cap = rhs.capacity();
+    cap = rhs.size();
     return *this;
 }
 
@@ -56,15 +55,14 @@ ArrayList& ArrayList::operator = (ArrayList& rhs){return atama(rhs);}
 
 void ArrayList::clear()
 {
-    lenght = 0;
-    /*delete[] data;
-    data = 0;
+	delete[] data;
+    //data = 0;
     cap = 1;
     lenght = 0;
-    data = new int[cap];*/
+    data = new int[cap];
 }
 
 /*ArrayList::~ArrayList()
 {
-    delete [] data;
+    clear();
 }*/
