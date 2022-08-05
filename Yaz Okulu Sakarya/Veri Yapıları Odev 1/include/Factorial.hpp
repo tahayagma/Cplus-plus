@@ -18,7 +18,7 @@ class Factorial{
     ArrayList l,Z,tmp;
 
     public:
-    ArrayList ToArray(int);// girilen sayıyı ArrayListe çevirme
+    ArrayList& ToArray(int);// girilen sayıyı ArrayListe çevirme
     ArrayList& factorial(ArrayList&,ArrayList&);// sayıların çarpılıp toplama işlemi için topla fonk. gönderilmesi
     ArrayList& topla(ArrayList&,ArrayList&); // yanlış toplama işleminin yapılması.
 
