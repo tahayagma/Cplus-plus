@@ -21,47 +21,23 @@ int main(){
     Factorial f1,f2;
     ArrayList temp = f1.ToArray(sayi);
     for(int i=sayi-1;i>1;i--){
-        ArrayList bsd = f2.ToArray(i);
-        temp = f1.factorial(temp,bsd);
+        temp = f1.factorial(temp,f2.ToArray(i));
     }
+	
+	cout<<"temp size: "<<temp.size()<<endl;
+	cout<<"temp capacity: "<<temp.capacity()<<endl;
     
     // DOSYA YAZDİRMA
 
     ofstream outfile("Sonuc.txt");
 
     if(!outfile){
-        cout << "dosyas acma hatasi !";
+        cout << "dosya acma hatasi !";
     }
     else{
         for(int * i = temp.end();i >=temp.begin();i--)outfile<<*i<<"";
     }
     outfile.close();
     
-
-
-    
-
-
-    //DEBUG
-
-
-    /*ArrayList l1,l2;
-    l1.push_front(10);
-    l1.push_front(20);
-    cout<<"l1: ";
-    for(int a: l1) cout<<a<<" ";cout<<endl;
-    l2 = l1;
-    l2.push_front(25);
-    cout<<"l2: ";
-    for(int a: l2) cout<<a<<" ";cout<<endl;
-    cout<<"l1: ";
-    for(int a: l1) cout<<a<<" ";cout<<endl;
-    l1 = l2;
-    cout<<"l1: ";
-    for(int a: l1) cout<<a<<" ";cout<<endl;
-    l2.clear();
-    cout<<"l2: ";
-    for(int a: l2) cout<<a<<" ";cout<<endl;*/
-
     return 0;
 }
