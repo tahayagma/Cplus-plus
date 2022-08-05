@@ -7,11 +7,10 @@
 * @author Taha YAĞMA
 */
 
-
 #include "Factorial.hpp"
 #include <math.h>
 
-ArrayList Factorial::ToArray(int value)
+ArrayList& Factorial::ToArray(int value)
 {   
     l.clear();
     int n = value;
@@ -28,8 +27,7 @@ ArrayList& Factorial::topla(ArrayList& lisX,ArrayList&lisY){
     if(abs(fark)>0){
         if(lisX.size()>lisY.size())// list y ekleme yapılacak
         {
-            for(int i= 0; i<abs(fark);i++)
-                lisY.push_back(0);
+            for(int i= 0; i<abs(fark);i++){lisY.push_back(0);}
         }
         else
         {
