@@ -22,7 +22,6 @@ ArrayList& Factorial::ToArray(int value)
 }
 
 ArrayList& Factorial::topla(ArrayList& lisX,ArrayList&lisY){
-    Z.clear();
     int fark = (lisX.size()-lisY.size());
     if(abs(fark)>0){
         if(lisX.size()>lisY.size())// list y ekleme yapılacak
@@ -94,8 +93,9 @@ ArrayList& Factorial::factorial(ArrayList& l1,ArrayList& l2){
         //for(int i : c)cout<<i<<" ";cout<<endl;
         if(tmp.size() == 0)
             tmp = c;
-        else
+        else{
             tmp = topla(tmp,c);
+            Z.clear();} // clear burda çalıştırmak daha mantıklı olacaktır belleğin boşaltılması için toplada olması gereksiz
         c.clear();
     }
     //for(int*i = tmp.begin(); i <= tmp.end() ;i++){cout<<*i;};cout<<endl;
