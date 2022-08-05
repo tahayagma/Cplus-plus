@@ -15,7 +15,7 @@
  void ArrayList::arttir(){
     if(capacity()<=size())
     { 
-        cap *=2; // kapasiteyi 2 katına çıkardık.
+        cap *=5; // kapasiteyi 5 katına çıkardık. Böylelikle arttir metoduna daha az girilir bu sayede daha hızlı çalışır fakat bad_alloc hatası alma ols artar.öneri:2
         int*  new_data = new int[cap];// yeni kapasite boyutunda yeni bir dizi oluşturuldu. 
         for(int i= 0; i<size();i++)// veriler yeni diziye kopyalanıyor.
         { 
@@ -40,7 +40,7 @@ void ArrayList::push_back(const int& value)
 
 // atama işlemleri 
 ArrayList& ArrayList::atama(ArrayList& rhs)
-{	clear();
+{   clear();
     data = new int[rhs.size()];
     for(int i = 0; i<rhs.size();i++){
         data[i] = rhs.data[i];
