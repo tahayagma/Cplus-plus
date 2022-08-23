@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct ogr
+{
+char adi[50];
+float odev1,odev2;
+float quiz1,quiz2,quiz3;
+float vize1,vize2;
+float final;
+float gecme_notu;
+};
+
+
+int main(){
+
+    int dizi_boyutu;
+    float *dizi;
+
+    printf("dizi boyutunu gir:");
+    scanf("%d",&dizi_boyutu);
+
+    dizi = (float*) malloc(dizi_boyutu*sizeof(float));
+
+    FILE *dosya;
+
+
+    struct ogr ogrn[dizi_boyutu+1];
+
+    for (int i = 1; i <=dizi_boyutu; i++)
+    {
+        printf("%d.ogrencinin adi:",i);
+        scanf("%s",&ogrn[i].adi);
+        printf("%s odev-1 ve odev-2 notu gir:",ogrn[i].adi);
+        scanf("%f %f",&ogrn[i].odev1,&ogrn[i].odev2);
+        printf("%s quiz1, quiz2, quiz3 notu gir:",ogrn[i].adi);
+        scanf("%f %f %f",&ogrn[i].quiz1,&ogrn[i].quiz2,&ogrn[i].quiz3);
+        printf("%s'in vize1 ve vize2 notu gir: ",ogrn[i].adi);
+        scanf("%f %f",&ogrn[i].vize1,&ogrn[i].vize2);
+        printf("%s final notu gir:",ogrn[i].adi);
+        scanf("%f",&ogrn[i].final);
+
+    }
+    
+
+    for (int j = 1; j <=dizi_boyutu; j++)
+    {
+        ogrn[j].gecme_notu =(ogrn[j].odev1*0.05+ogrn[j].odev2*0.05+ogrn[j].quiz1*0.08+ogrn[j].quiz2*0.08+ogrn[j].quiz3*0.08+
+                            ogrn[j].vize1*0.13+ogrn[j].vize2*0.13+ogrn[j].final*0.40)/8;
+    }
+    
+    dosya = fopen("notlar.txt","w");
+    
+    for (int k = 1; k <=dizi_boyutu; k++)
+    {
+        fprintf(dosya,"Ogrenci adi:%s gecme notu: %.2f\n",ogrn[k].adi,ogrn[k].gecme_notu);
+    }
+    fclose(dosya);
+    printf("veriler 'notlar.txt' adlı dosyaya kaydedildi. ");
+    
+    
+
+
+
+    getch();
+    return 0;
+}
